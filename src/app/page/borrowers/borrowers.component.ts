@@ -45,4 +45,13 @@ export class BorrowersComponent implements OnInit {
     this.selectedBorrower = borrower;
     console.log('Set Selected Borrower' + borrower.bid);
   }
+
+  saveBorrower() {
+    let postApi = 'http://localhost:8080/borrower/add';
+    this.http.post(postApi, this.selectedBorrower).subscribe((data) => {
+      console.log('saved!');
+      this.loadBorrowers();
+      this.selectedBorrower = [];
+    });
+  }
 }
