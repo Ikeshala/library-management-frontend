@@ -22,7 +22,12 @@
         <td class="align-middle">{{ book.category }}</td>
         <td class="align-middle text-center">{{ book.qty }}</td>
         <td class="align-middle">
-          <button class="btn btn-danger">
+          <button
+            class="btn btn-danger"
+            (click)="setSelectedBook(book)"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteModal"
+          >
             <i class="bi bi-trash3-fill"></i>
           </button>
           &nbsp;
@@ -33,4 +38,45 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Modal Delete -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Delete Confirmation
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete '{{ selectedBook?.title }}' book?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          (click)="deleteBook()"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >
+          Yes, Delete
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
