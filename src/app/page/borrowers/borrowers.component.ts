@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class BorrowersComponent implements OnInit {
   private http;
   public borrowerList: any = {};
+  public selectedBorrower: any;
 
   constructor(private httpCliant: HttpClient) {
     this.http = httpCliant;
@@ -27,5 +28,21 @@ export class BorrowersComponent implements OnInit {
       this.borrowerList = data;
       console.log(this.borrowerList);
     });
+  }
+
+  deleteBorrower() {
+    let api = 'http://localhost:8080/borrower/' + this.selectedBorrower.bid;
+    this.http
+      .delete(api, { responseType: 'text' })
+      .subscribe((responce: string) => {
+        console.log(responce);
+        this.loadBorrowers();
+        this.selectedBorrower = null;
+      });
+  }
+
+  setSelectedBorrower(borrower: any) {
+    this.selectedBorrower = borrower;
+    console.log('Set Selected Borrower' + borrower.bid);
   }
 }
