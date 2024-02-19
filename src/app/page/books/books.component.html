@@ -31,7 +31,13 @@
             <i class="bi bi-trash3-fill"></i>
           </button>
           &nbsp;
-          <button class="btn btn-primary">
+          <button
+            class="btn btn-primary"
+            (click)="setSelectedBook(book)"
+            data-bs-toggle="modal"
+            data-bs-target="#updateModal"
+            data-bs-whatever="@getbootstrap"
+          >
             <i class="bi bi-pencil-fill"></i>
           </button>
         </td>
@@ -75,6 +81,150 @@
           data-bs-dismiss="modal"
         >
           Yes, Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal update confirmation -->
+<div
+  class="modal fade"
+  id="confiremationModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Update Confiremation
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        If you want to update "{{ selectedBook?.title }}" book?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          data-bs-dismiss="modal"
+          (click)="saveBook()"
+          class="btn btn-primary"
+        >
+          Confirm Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update -->
+<div
+  class="modal fade"
+  id="updateModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Update Book Details
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">BookID:</label>
+            <input
+              disabled
+              type="text"
+              value="{{ selectedBook?.id }}"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">ISBN:</label>
+            <input
+              disabled
+              type="text"
+              value="{{ selectedBook?.isbn }}"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Book Title:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedBook && selectedBook.title"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Author:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedBook && selectedBook.author"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Category:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedBook && selectedBook.category"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Quantity:</label>
+            <input
+              type="number"
+              [(ngModel)]="selectedBook && selectedBook.qty"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="recipient-name"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#confiremationModal"
+          data-bs-whatever="@getbootstrap"
+        >
+          Update
         </button>
       </div>
     </div>
