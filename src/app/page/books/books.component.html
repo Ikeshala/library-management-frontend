@@ -15,13 +15,13 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let book of bookList">
-        <td>#BN_{{ book.id }}</td>
-        <td>{{ book.isbn }}</td>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.category }}</td>
-        <td>{{ book.qty }}</td>
-        <td>
+        <td class="align-middle">#BN_{{ book.id }}</td>
+        <td class="align-middle">{{ book.isbn }}</td>
+        <td class="align-middle">{{ book.title }}</td>
+        <td class="align-middle">{{ book.author }}</td>
+        <td class="align-middle">{{ book.category }}</td>
+        <td class="align-middle text-center">{{ book.qty }}</td>
+        <td class="align-middle">
           <button class="btn btn-danger">
             <i class="bi bi-trash3-fill"></i>
           </button>
