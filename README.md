@@ -8,7 +8,7 @@
 <hr>
 <h2>Project Screenshots:</h2>
 
-<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/sign%20up.png" alt="project-screenshot" alt="project-image"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/master/src/assets/project%20SS/sign%20up1.png" alt="project-screenshot" alt="project-image"></p>
 
 <p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/login.png" alt="project-screenshot" alt="project-image"></p>
 
