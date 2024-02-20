@@ -1,1 +1,166 @@
-<p>signup works!</p>
+<main class="container w-50">
+  <div class="py-2 text-center">
+    <img width="70" height="70" src="assets/images/bookshelf.png" alt="" />
+    <h2 class="h3 mb-3 fw-bold">Sign-up</h2>
+    <p class="lead">
+      Unlock the world of knowledge – sign up for your library membership today!
+    </p>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-12 col-lg-12">
+      <h4 class="mb-3">Your Information</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">First name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder=""
+              value=""
+              required
+            />
+            <div class="invalid-feedback">Valid first name is required.</div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label">Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder=""
+              value=""
+              required
+            />
+            <div class="invalid-feedback">Valid last name is required.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="username" class="form-label">Username</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text"
+                ><i class="bi bi-person-fill"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Username"
+                required
+              />
+              <div class="invalid-feedback">Your username is required.</div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label"
+              >Email <span class="text-body-secondary">(Optional)</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="you@example.com"
+            />
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="address" class="form-label">Permenent Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="1234 Main St"
+              required
+            />
+            <div class="invalid-feedback">
+              Please enter your shipping address.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="address2" class="form-label"
+              >Mailling Address
+              <span class="text-body-secondary">(Optional)</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="address2"
+              placeholder="Apartment or suite"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="country" class="form-label">Country</label>
+            <select class="form-select" id="country" required>
+              <option value="">Choose...</option>
+              <option
+                *ngFor="let country of countryList"
+                [value]="country.name.common"
+                (click)="setSelectedCountry(country)"
+              >
+                {{ country.flag }}&nbsp;{{ country.name.common }}
+              </option>
+            </select>
+            <div class="invalid-feedback">Please select a valid country.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="zip" class="form-label">Phone Number</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ selectedCountry?.idd.root }}{{
+                selectedCountry?.idd.suffixes
+                  ? selectedCountry?.idd.suffixes.join('')
+                  : ''
+              }}"
+              id="zip"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Phone Number required.</div>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address" />
+          <label class="form-check-label" for="same-address"
+            >Mailling address is the same as my permenent address</label
+          >
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="save-info" />
+          <label class="form-check-label" for="save-info"
+            >Save this information for next time</label
+          >
+        </div>
+
+        <hr class="my-4" />
+
+        <button class="w-100 btn btn-primary btn-lg" type="submit">
+          Join the Library!
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="my-5 pt-5 text-body-secondary text-center text-small">
+  <p class="mb-1">&copy; 2017–2024 Company Name</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Privacy</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul>
+</footer>
