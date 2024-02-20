@@ -40,7 +40,7 @@ export class BooksComponent implements OnInit {
         this.loadBooks();
         Swal.fire({
           title: 'Book Deleted!',
-          text: `${this.selectedBook.title} book has been successfully deleted.`,
+          text: `The book '${this.selectedBook.title}' has been successfully deleted.`,
           icon: 'success',
         });
         this.selectedBook = null;
@@ -57,6 +57,11 @@ export class BooksComponent implements OnInit {
     this.http.post(postApi, this.selectedBook).subscribe((data) => {
       console.log('saved!');
       this.loadBooks();
+      Swal.fire({
+        title: 'Book Updated!',
+        text: `The book '${this.selectedBook.title}' has been successfully updated.`,
+        icon: 'success',
+      });
       this.selectedBook = [];
     });
   }
