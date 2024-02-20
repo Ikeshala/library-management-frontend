@@ -1,5 +1,17 @@
 <div class="table-responsive small container">
-  <h2>Library Book List</h2>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Library Book List</h2>
+    <button
+      class="btn btn-primary"
+      (click)="addNewBook()"
+      data-bs-toggle="modal"
+      data-bs-target="#addBookModal"
+      data-bs-whatever="@getbootstrap"
+    >
+      <i class="bi bi-book-half"></i>
+      Expand Collection
+    </button>
+  </div>
   <br />
   <table class="table table-striped table-sm">
     <thead class="sticky-header">
@@ -227,6 +239,91 @@
           data-bs-whatever="@getbootstrap"
         >
           Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add New Book -->
+<div
+  class="modal fade"
+  id="addBookModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="isbn" class="col-form-label">ISBN :</label>
+            <input
+              type="text"
+              [(ngModel)]="newBook.isbn"
+              class="form-control"
+              id="isbn"
+              name="isbn"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="col-form-label">Book Title :</label>
+            <input
+              type="text"
+              [(ngModel)]="newBook.title"
+              class="form-control"
+              id="title"
+              name="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="author" class="col-form-label">Author :</label>
+            <input
+              type="text"
+              [(ngModel)]="newBook.author"
+              class="form-control"
+              id="author"
+              name="author"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="category" class="col-form-label">Category :</label>
+            <input
+              type="text"
+              [(ngModel)]="newBook.category"
+              class="form-control"
+              id="category"
+              name="category"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="qty" class="col-form-label">Quantity :</label>
+            <input
+              type="number"
+              [(ngModel)]="newBook.qty"
+              class="form-control"
+              id="qty"
+              name="qty"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="saveNewBook()">
+          Save
         </button>
       </div>
     </div>

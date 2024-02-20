@@ -15,6 +15,7 @@ export class BooksComponent implements OnInit {
   private http;
   public bookList: any = {};
   public selectedBook: any;
+  public newBook: any = {};
 
   constructor(private httpCliant: HttpClient) {
     this.http = httpCliant;
@@ -63,6 +64,42 @@ export class BooksComponent implements OnInit {
         icon: 'success',
       });
       this.selectedBook = [];
+    });
+  }
+
+  addNewBook() {
+    this.newBook = {};
+  }
+
+  saveNewBook() {
+    // Check if any of the required fields are empty
+    if (
+      !this.newBook.isbn ||
+      !this.newBook.title ||
+      !this.newBook.author ||
+      !this.newBook.category ||
+      !this.newBook.qty
+    ) {
+      console.log('One or more required fields are empty:', this.newBook);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please fill out all required fields.',
+        icon: 'error',
+      });
+      return; // Exit the function if any required field is empty
+    }
+
+    console.log('Submitting new book:', this.newBook);
+
+    let postApi = 'http://localhost:8080/book/add';
+    this.http.post(postApi, this.newBook).subscribe((data) => {
+      this.loadBooks();
+      Swal.fire({
+        title: 'New Book Added!',
+        text: `The book '${this.newBook.title}' has been successfully added.`,
+        icon: 'success',
+      });
+      this.newBook = {}; // Clear newBook object after saving
     });
   }
 }
