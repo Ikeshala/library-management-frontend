@@ -40,7 +40,7 @@ export class BorrowersComponent implements OnInit {
         this.loadBorrowers();
         Swal.fire({
           title: 'Borrower Deleted!',
-          text: `The borrower "${this.selectedBorrower.name}" has been successfully deleted.`,
+          text: `The borrower '${this.selectedBorrower.name}' has been successfully deleted.`,
           icon: 'success',
         });
         this.selectedBorrower = null;
@@ -57,6 +57,11 @@ export class BorrowersComponent implements OnInit {
     this.http.post(postApi, this.selectedBorrower).subscribe((data) => {
       console.log('saved!');
       this.loadBorrowers();
+      Swal.fire({
+        title: 'Borrower Updated!',
+        text: `The borrower '${this.selectedBorrower.name}' has been successfully updated.`,
+        icon: 'success',
+      });
       this.selectedBorrower = [];
     });
   }
