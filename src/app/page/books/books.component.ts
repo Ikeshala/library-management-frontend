@@ -72,7 +72,6 @@ export class BooksComponent implements OnInit {
   }
 
   saveNewBook() {
-    // Check if any of the required fields are empty
     if (
       !this.newBook.isbn ||
       !this.newBook.title ||
@@ -86,7 +85,7 @@ export class BooksComponent implements OnInit {
         text: 'Please fill out all required fields.',
         icon: 'error',
       });
-      return; // Exit the function if any required field is empty
+      return;
     }
 
     console.log('Submitting new book:', this.newBook);
@@ -99,7 +98,7 @@ export class BooksComponent implements OnInit {
         text: `The book '${this.newBook.title}' has been successfully added.`,
         icon: 'success',
       });
-      this.newBook = {}; // Clear newBook object after saving
+      this.newBook = {};
     });
   }
 }

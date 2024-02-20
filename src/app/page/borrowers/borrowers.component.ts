@@ -15,6 +15,7 @@ export class BorrowersComponent implements OnInit {
   private http;
   public borrowerList: any = {};
   public selectedBorrower: any;
+  public newBorrower: any = {};
 
   constructor(private httpCliant: HttpClient) {
     this.http = httpCliant;
@@ -63,6 +64,40 @@ export class BorrowersComponent implements OnInit {
         icon: 'success',
       });
       this.selectedBorrower = [];
+    });
+  }
+
+  addNewBorrower() {
+    this.newBorrower = {};
+  }
+
+  saveNewBorrower() {
+    if (
+      !this.newBorrower.name ||
+      !this.newBorrower.contact ||
+      !this.newBorrower.address ||
+      !this.newBorrower.nic
+    ) {
+      console.log('One or more required fields are empty:', this.newBorrower);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please fill out all required fields.',
+        icon: 'error',
+      });
+      return;
+    }
+
+    console.log('Submitting new borrower:', this.newBorrower);
+
+    let postApi = 'http://localhost:8080/borrower/add';
+    this.http.post(postApi, this.newBorrower).subscribe((data) => {
+      this.loadBorrowers();
+      Swal.fire({
+        title: 'New Member Registration Successful!',
+        text: `The registration for '${this.newBorrower.name}' has been successfully completed. Welcome to our library!`,
+        icon: 'success',
+      });
+      this.newBorrower = {};
     });
   }
 }
