@@ -1,6 +1,21 @@
-# LibraryManagementFrontend
+<h1 align="center" id="title">Library Management Frontend</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/home.png" alt="project-image"></p>
+
+<p id="description" style="text-align: justify;">Discover an innovative Library Management solution seamlessly integrating the power of Spring Boot for a robust backend, Angular for a dynamic frontend experience, and Bootstrap for a visually stunning interface. Our web application revolutionizes the way libraries operate, providing an intuitive platform that streamlines management tasks while offering patrons an engaging browsing experience. With Spring Boot driving the backend functionality, Angular delivers a sleek and responsive user interface, ensuring optimal performance and usability across devices. The use of Bootstrap adds a touch of elegance, elevating the design aesthetic to new heights. Embrace efficiency and elegance with our Library Management application, where technology meets literature for an unparalleled experience in knowledge organization and access.</p>
+
+<p>Note: This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.</p>
+<hr>
+<h2>Project Screenshots:</h2>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/sign%20up.png" alt="project-screenshot" alt="project-image"></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/login.png" alt="project-screenshot" alt="project-image"></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/books.png" alt="project-screenshot" alt="project-image"></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Ikeshala/library-management-frontend/8f2fdfba80294613d77100d87279bf0ed910ec5e/src/assets/project%20SS/borrowers.png" alt="project-screenshot" alt="project-image"></p>
+<hr>
 
 ## Development server
 
